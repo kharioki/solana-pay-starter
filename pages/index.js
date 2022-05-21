@@ -2,19 +2,19 @@ import React from "react";
 import HeadComponent from '../components/Head';
 
 // Constants
-const TWITTER_HANDLE = "_buildspace";
+const TWITTER_HANDLE = "kharioki";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
-  
-  
+
+
   return (
     <div className="App">
-      <HeadComponent/>
+      <HeadComponent />
       <div className="container">
         <header className="header-container">
-          <p className="header"> 😳 Buildspace Emoji Store 😈</p>
-          <p className="sub-text">The only emoji store that accepts sh*tcoins</p>
+          <p className="header"> Kiki's Art Store 🖼</p>
+          <p className="sub-text">The only art store that accepts crypto</p>
         </header>
 
         <main>
@@ -28,7 +28,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>
