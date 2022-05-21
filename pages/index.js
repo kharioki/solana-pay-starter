@@ -1,8 +1,8 @@
-import React from "react";
-import { PublicKey } from "@solana/web3.js";
+import React, { useEffect, useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
+import Product from "../components/Product";
 import HeadComponent from '../components/Head';
 
 // Constants
@@ -12,14 +12,30 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const App = () => {
   // fetch user's public key (wallet address)
   const { publicKey } = useWallet();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    if (publicKey) {
+      fetch(`/api/fetchProducts`)
+        .then(res => res.json())
+        .then(data => {
+          setProducts(data);
+          console.log('products: ', data);
+        });
+    }
+  }, [publicKey]);
 
   const renderNotConnectedContainer = () => (
-    <div>
-      <img src="https://media.giphy.com/media/eSwGh3YK54JKU/giphy.gif" alt="emoji" />
+    <div className="button-container">
+      <WalletMultiButton className="cta-button connect-wallet-button" />
+    </div>
+  );
 
-      <div className="button-container">
-        <WalletMultiButton className="cta-button connect-wallet-button" />
-      </div>
+  const renderItemBuyContainer = () => (
+    <div className="products-container">
+      {products.map(product => (
+        <Product key={product.id} product={product} />
+      ))}
     </div>
   );
 
@@ -33,7 +49,7 @@ const App = () => {
         </header>
 
         <main>
-          {publicKey ? 'Connected' : renderNotConnectedContainer()}
+          {publicKey ? renderItemBuyContainer() : renderNotConnectedContainer()}
         </main>
 
         <div className="footer-container">
