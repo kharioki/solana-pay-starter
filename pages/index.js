@@ -1,4 +1,8 @@
 import React from "react";
+import { PublicKey } from "@solana/web3.js";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+
 import HeadComponent from '../components/Head';
 
 // Constants
@@ -6,7 +10,18 @@ const TWITTER_HANDLE = "kharioki";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+  // fetch user's public key (wallet address)
+  const { publicKey } = useWallet();
 
+  const renderNotConnectedContainer = () => (
+    <div>
+      <img src="https://media.giphy.com/media/eSwGh3YK54JKU/giphy.gif" alt="emoji" />
+
+      <div className="button-container">
+        <WalletMultiButton className="cta-button connect-wallet-button" />
+      </div>
+    </div>
+  );
 
   return (
     <div className="App">
@@ -18,7 +33,7 @@ const App = () => {
         </header>
 
         <main>
-          <img src="https://media.giphy.com/media/eSwGh3YK54JKU/giphy.gif" alt="emoji" />
+          {publicKey ? 'Connected' : renderNotConnectedContainer()}
         </main>
 
         <div className="footer-container">
