@@ -3,13 +3,14 @@ import products from './products.json';
 export default function handler(req, res) {
   // if a GET request
   if (req.method === 'GET') {
-    // remove hashes from products.json
-    const cleanProducts = products.map(product => {
-      delete product.hash;
-      return product;
+    // Create a copy of products without the hashes and filenames
+    const productsNoHashes = products.map((product) => {
+
+      const { hash, filename, ...rest } = product;
+      return rest;
     });
 
-    res.status(200).json(cleanProducts);
+    res.status(200).json(productsNoHashes);
   }
   else {
     res.status(405).send(`Method ${req.method} not allowed`);

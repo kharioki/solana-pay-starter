@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Product.module.css';
-import IPFSDownload from './IpfsDownload';
+import Buy from './Buy';
 
 export default function Product({ product }) {
   const { id, name, price, description, image_url } = product;
@@ -18,7 +18,7 @@ export default function Product({ product }) {
 
         <div className={styles.product_action}>
           <div className={styles.product_price}>{price}</div>
-          <IPFSDownload hash='QmZqiXvUQGXgRQEnZiqhBMrB9YXdLa8rfWFLDUP66wf5Tk' filename={name} />
+          <Buy itemID={id} />
         </div>
       </div>
     </div>
