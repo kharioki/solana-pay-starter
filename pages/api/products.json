@@ -16,5 +16,14 @@
     "image_url": "https://res.cloudinary.com/khariokitony/image/upload/v1653176237/origamis/Curso-Origami.jpg",
     "filename": "Curso-Origami",
     "hash": "QmZqiXvUQGXgRQEnZiqhBMrB9YXdLa8rfWFLDUP66wf5Tk"
+  },
+  {
+    "id": 3,
+    "name": "Faux Bird",
+    "price": "0.54",
+    "image_url": "https://res.cloudinary.com/khariokitony/image/upload/v1653273738/origamis/Faux.jpg",
+    "description": "A Phoenix bird origami",
+    "filename": "Faux.zip",
+    "hash": "QmNaACW6TAHxPeFzXC9mkmVMxygabxKBSgbKw1EEVoJAAv"
   }
 ]
