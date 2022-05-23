@@ -145,9 +145,11 @@ button:disabled {
 
 .create-product-button{
   margin: 10px;
-  border: 0;
+  border-radius: 3px;
+  border: 1px solid rgb(104, 104, 104);
   font-size: 20px;
-  font-weight: bold;
+  padding: 10px;
+  /* font-weight: bold; */
   position: fixed;
   top: 20px;
   right: 20px;
